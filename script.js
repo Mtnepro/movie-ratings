@@ -86,10 +86,21 @@ async function loadMovies() {
                     ${movie.release_year || ""} · ${movie.genre || ""}
                 </p>
 
-                <div class="rating-count">
-                    ${movieReviews.length}
-                    note${movieReviews.length > 1 ? "s" : ""}
+               <div class="movie-reviews">
+    ${
+        movieReviews.length > 0
+        ? movieReviews.map(review => `
+            <div class="review">
+                <div class="review-rating">
+                    ⭐ ${review.rating}/10
                 </div>
+
+                <p>${review.content || "Aucun commentaire."}</p>
+            </div>
+        `).join("")
+        : "<p class='no-reviews'>Aucun avis pour le moment.</p>"
+    }
+</div>
 
                 <button
                     class="rate-movie-btn"
