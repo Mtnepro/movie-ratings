@@ -813,3 +813,31 @@ footer small {
     margin-top: 15px;
     text-align: center;
 }
+
+.movie-reviews {
+    margin-top: 15px;
+}
+
+.review {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.review-rating {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.review p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.no-reviews {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 12px;
+}
