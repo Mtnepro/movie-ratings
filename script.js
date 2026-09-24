@@ -188,3 +188,30 @@ if (signupButton) {
         console.log("Compte créé :", data);
     });
 }
+
+// =========================
+// AFFICHER L'ÉTAT DE CONNEXION
+// =========================
+
+async function updateLoginButton() {
+    if (!loginButton) return;
+
+    const { data: { session } } =
+        await supabaseClient.auth.getSession();
+
+    if (session) {
+        loginButton.textContent = "Mon compte";
+    } else {
+        loginButton.textContent = "Se connecter";
+    }
+}
+
+updateLoginButton();
+
+supabaseClient.auth.onAuthStateChange((event, session) => {
+    if (session) {
+        loginButton.textContent = "Mon compte";
+    } else {
+        loginButton.textContent = "Se connecter";
+    }
+});
