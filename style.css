@@ -740,3 +740,76 @@ footer small {
         gap: 15px;
     }
 }
+
+/* ===============================
+   FENÊTRE DE CONNEXION
+   =============================== */
+
+.auth-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.auth-modal.show {
+    display: flex;
+}
+
+.auth-box {
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    background: #0c2852;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.auth-box h2 {
+    margin-bottom: 10px;
+}
+
+.auth-box p {
+    color: #8fa8c7;
+    margin-bottom: 20px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    background: #06152f;
+    color: white;
+    outline: none;
+}
+
+.auth-box input:focus {
+    border-color: #168cff;
+}
+
+.auth-box .primary-btn {
+    width: 100%;
+}
+
+.close-auth {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#auth-message {
+    margin-top: 15px;
+    text-align: center;
+}
