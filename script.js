@@ -108,8 +108,22 @@ console.log("Supabase est connecté !");
 const loginButton = document.querySelector(".login-btn");
 
 if (loginButton) {
-    loginButton.addEventListener("click", () => {
-        document.querySelector("#auth-modal").classList.add("show");
+    loginButton.addEventListener("click", async () => {
+
+        const { data: { session } } =
+            await supabaseClient.auth.getSession();
+
+        if (session) {
+
+            await supabaseClient.auth.signOut();
+
+            loginButton.textContent = "Se connecter";
+
+        } else {
+
+            document.querySelector("#auth-modal").classList.add("show");
+
+        }
     });
 }
 
