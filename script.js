@@ -100,3 +100,56 @@ async function loadMovies() {
 loadMovies();
 
 console.log("Supabase est connecté !");
+
+// ===============================
+// CONNEXION
+// ===============================
+
+const loginButton = document.querySelector(".login-btn");
+
+if (loginButton) {
+    loginButton.addEventListener("click", () => {
+        document.querySelector("#auth-modal").classList.add("show");
+    });
+}
+
+const closeAuth = document.querySelector("#close-auth");
+
+if (closeAuth) {
+    closeAuth.addEventListener("click", () => {
+        document.querySelector("#auth-modal").classList.remove("show");
+    });
+}
+
+const authForm = document.querySelector("#auth-form");
+
+if (authForm) {
+    authForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const email = document.querySelector("#auth-email").value;
+        const password = document.querySelector("#auth-password").value;
+        const message = document.querySelector("#auth-message");
+
+        message.textContent = "Connexion...";
+
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+        if (error) {
+            message.textContent = error.message;
+            return;
+        }
+
+        message.textContent = "Connexion réussie ! 🎉";
+
+        setTimeout(() => {
+            document.querySelector("#auth-modal").classList.remove("show");
+        }, 1000);
+
+        console.log("Utilisateur connecté :", data.user);
+    });
+}
