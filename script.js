@@ -153,3 +153,38 @@ if (authForm) {
         console.log("Utilisateur connecté :", data.user);
     });
 }
+
+// =========================
+// CRÉATION DE COMPTE
+// =========================
+
+const signupButton = document.querySelector("#signup-btn");
+
+if (signupButton) {
+    signupButton.addEventListener("click", async () => {
+
+        const email = document.querySelector("#auth-email").value;
+        const password = document.querySelector("#auth-password").value;
+        const message = document.querySelector("#auth-message");
+
+        if (!email || !password) {
+            message.textContent = "Remplis ton email et ton mot de passe.";
+            return;
+        }
+
+        message.textContent = "Création du compte...";
+
+        const { data, error } = await supabaseClient.auth.signUp({
+            email: email,
+            password: password
+        });
+
+        if (error) {
+            message.textContent = error.message;
+            return;
+        }
+
+        message.textContent = "Compte créé ! 🎉 Vérifie ton email.";
+        console.log("Compte créé :", data);
+    });
+}
