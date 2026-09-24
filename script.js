@@ -27,7 +27,7 @@ async function loadMovies() {
     const { data: reviews, error: reviewsError } =
         await supabaseClient
             .from("reviews")
-            .select("movie_id, rating");
+            .select("movie_id, rating, content");
 
     if (reviewsError) {
         console.error("Erreur avis :", reviewsError);
