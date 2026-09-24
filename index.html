@@ -350,6 +350,49 @@
 
     </footer>
 
+    </footer>
+
+<!-- FENÊTRE DE CONNEXION -->
+<div id="auth-modal" class="auth-modal">
+
+    <div class="auth-box">
+
+        <button id="close-auth" class="close-auth">✕</button>
+
+        <h2>Se connecter</h2>
+
+        <p>Connecte-toi à ton compte CinéRate.</p>
+
+        <form id="auth-form">
+
+            <input
+                type="email"
+                id="auth-email"
+                placeholder="Ton adresse email"
+                required
+            >
+
+            <input
+                type="password"
+                id="auth-password"
+                placeholder="Ton mot de passe"
+                required
+            >
+
+            <button type="submit" class="primary-btn">
+                Se connecter
+            </button>
+
+            <p id="auth-message"></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- SUPABASE -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
